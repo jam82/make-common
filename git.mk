@@ -50,7 +50,7 @@ git-publish:
 
 git-quickshot:
 	@git add .
-	@git commit -m "build: update config"
+	@codegpt commit
 	@git push -u origin dev
 	@git checkout main
 	@git merge dev
