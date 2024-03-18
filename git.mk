@@ -1,20 +1,22 @@
 # file: git.mk
 # desc: common git commands
 
-SHELL := /bin/bash
+# SHELL := /bin/bash
+
+feat	?= dummy
 
 .PHONY: git-feature git-merge-feature git-merge-dev git-prepare-release git-version git-publish
 
 # create a feature branch
 git-feature:
-	@git checkout -b feature/$(name)
-	@git push -u origin feature/$(name)
+	@git checkout -b feature/$(feat)
+	@git push -u origin feature/$(feat)
 
 # merge feature branch into dev
 git-merge-feature:
 	@git checkout dev
-	@git merge feature/$(name)
-	@git branch -d feature/$(name)
+	@git merge feature/$(feat)
+	@git branch -d feature/$(feat)
 	@git push -u origin dev
 
 # merge dev into main
